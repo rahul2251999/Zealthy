@@ -1,7 +1,8 @@
 [build]
   base = "client"
   command = "npm install && npm run build"
-  publish = "client/.next"
+  # Base already points at /client so we publish the .next output directly from there
+  publish = ".next"
 
 [build.environment]
   NODE_VERSION = "20"
