@@ -1,8 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: "standalone",
-  // Ensure proper routing on Netlify
+  // Netlify plugin handles the build output
   trailingSlash: false,
 };
 
