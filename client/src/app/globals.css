@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f6f3ee;
+  --ink: #0f172a;
+  --soft-ink: #1f2937;
+  --accent: #4f46e5;
+  --accent-2: #0ea5e9;
+  --glow: #a855f7;
+  --mint: #c7f9cc;
+  --sand: #fef3c7;
+  --card: #111827;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-night: var(--ink);
+  --color-ink: var(--soft-ink);
+  --color-accent: var(--accent);
+  --color-ocean: var(--accent-2);
+  --color-glow: var(--glow);
+  --color-sand: var(--sand);
+  --color-mint: var(--mint);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --shadow-card: 0 18px 55px rgba(15, 23, 42, 0.16);
+}
+
+body {
+  background: radial-gradient(circle at 10% 20%, rgba(79, 70, 229, 0.12), transparent 25%),
+    radial-gradient(circle at 80% 0%, rgba(14, 165, 233, 0.12), transparent 25%),
+    radial-gradient(circle at 40% 60%, rgba(168, 85, 247, 0.12), transparent 30%),
+    var(--background);
+  color: var(--ink);
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+}
+
+.glass {
+  backdrop-filter: blur(14px);
+  background: rgba(255, 255, 255, 0.74);
+  box-shadow: var(--shadow-card);
+}
+
+.card-border {
+  border: 1px solid rgba(15, 23, 42, 0.08);
+}

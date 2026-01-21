@@ -1,0 +1,54 @@
+
+> client@0.1.0 dev
+> next dev --hostname 127.0.0.1 --port 3000
+
+▲ Next.js 16.1.4 (Turbopack)
+- Local:         http://127.0.0.1:3000
+- Network:       http://127.0.0.1:3000
+- Environments: .env.local
+
+✓ Starting...
+✓ Ready in 1016ms
+ GET / 200 in 805ms (compile: 676ms, render: 129ms)
+ GET /admin 200 in 191ms (compile: 162ms, render: 29ms)
+ GET /admin/3 200 in 486ms (compile: 474ms, render: 12ms)
+ GET /admin/1 200 in 79ms (compile: 51ms, render: 28ms)
+Error: Route "/admin/[id]" used `params.id`. `params` is a Promise and must be unwrapped with `await` or `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at PatientDetail (src/app/admin/[id]/page.tsx:43:35)
+  41 | export default function PatientDetail({ params }: { params: { id: string } }) {
+  42 |   const router = useRouter();
+> 43 |   const patientId = Number(params.id);
+     |                                   ^
+  44 |
+  45 |   const [patient, setPatient] = useState<PatientWithDetails | null>(null);
+  46 |   const [catalog, setCatalog] = useState<Catalog | null>(null);
+ GET /admin/1 200 in 128ms (compile: 6ms, render: 122ms)
+ GET /admin 200 in 54ms (compile: 16ms, render: 38ms)
+ GET / 200 in 52ms (compile: 17ms, render: 35ms)
+ GET /admin 200 in 57ms (compile: 27ms, render: 31ms)
+ GET /admin/1 200 in 199ms (compile: 175ms, render: 24ms)
+✓ Compiled in 135ms
+Error: Route "/admin/[id]" used `params.id`. `params` is a Promise and must be unwrapped with `await` or `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at PatientDetail (src/app/admin/[id]/page.tsx:43:44)
+  41 | export default function PatientDetail({ params }: { params: { id: string } }) {
+  42 |   const router = useRouter();
+> 43 |   const patientId = Number.parseInt(params.id, 10);
+     |                                            ^
+  44 |   const invalidId = Number.isNaN(patientId);
+  45 |
+  46 |   const [patient, setPatient] = useState<PatientWithDetails | null>(null);
+ GET /admin/1 200 in 202ms (compile: 90ms, render: 112ms)
+✓ Compiled in 201ms
+✓ Compiled in 128ms
+ GET /admin 200 in 53ms (compile: 16ms, render: 37ms)
+ GET /admin/3 200 in 128ms (compile: 110ms, render: 18ms)
+ GET /admin 200 in 39ms (compile: 13ms, render: 26ms)
+ GET /admin/2 200 in 40ms (compile: 19ms, render: 20ms)
+ GET /admin 200 in 26ms (compile: 7ms, render: 20ms)
+✓ Compiled in 164ms
+✓ Compiled in 68ms
+ GET /admin/1 200 in 116ms (compile: 90ms, render: 26ms)
+ GET / 200 in 100ms (compile: 85ms, render: 15ms)
+✓ Compiled in 95ms
+ GET /admin 200 in 96ms (compile: 72ms, render: 24ms)
+ GET / 200 in 139ms (compile: 98ms, render: 41ms)
