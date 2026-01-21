@@ -37,7 +37,7 @@ app = FastAPI(title="Zealthy Mini EMR", version="1.0.0")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["*"],  # In production, replace with your Netlify domain
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

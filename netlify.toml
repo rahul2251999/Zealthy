@@ -1,8 +1,15 @@
 [build]
   base = "client"
-  command = "npm run build"
-  publish = ".next"
-  environment = { NEXT_PUBLIC_API_BASE_URL = "https://your-backend.example.com" }
+  command = "npm install && npm run build"
+  publish = "client/.next"
+
+[build.environment]
+  NODE_VERSION = "20"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/next"
+  status = 200
