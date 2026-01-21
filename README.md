@@ -22,6 +22,12 @@ Frontend (Next.js)
 - Set `NEXT_PUBLIC_API_BASE_URL` in your Netlify site settings to your deployed backend URL.
 - Build command: `npm run build` (base directory `client`, publish `.next`).
 
+## Deploying (GitHub Pages frontend)
+- Next.js is configured for static export with GitHub Pages base path/asset prefix.
+- GitHub Action `.github/workflows/gh-pages.yml` builds from `client` and publishes `client/out` to Pages.
+- Set repo secret `NEXT_PUBLIC_API_BASE_URL` to your live backend URL.
+- Pages will be served under `/<repo-name>` automatically (basePath handled in `next.config.ts`).
+
 ## Key paths
 - `/` patient portal: login, 7-day summary, 3-month appointment/refill drill-down.
 - `/admin` patient roster + create form.
