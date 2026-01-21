@@ -17,6 +17,11 @@ Frontend (Next.js)
 3) `cp .env.local.example .env.local` and set `NEXT_PUBLIC_API_BASE_URL=http://127.0.0.1:8000`
 4) `npm run dev` and open `http://127.0.0.1:3000`
 
+## Deploying (Netlify frontend)
+- The repo includes `netlify.toml` configured for the `client` app with the Netlify Next.js plugin.
+- Set `NEXT_PUBLIC_API_BASE_URL` in your Netlify site settings to your deployed backend URL.
+- Build command: `npm run build` (base directory `client`, publish `.next`).
+
 ## Key paths
 - `/` patient portal: login, 7-day summary, 3-month appointment/refill drill-down.
 - `/admin` patient roster + create form.
