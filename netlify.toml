@@ -6,6 +6,17 @@
 
 [build.environment]
   NODE_VERSION = "20"
+  PYTHON_VERSION = "3.10"
+
+[functions]
+  # Functions live at /netlify/functions relative to the repo root
+  directory = "../netlify/functions"
+  included_files = ["../server/**"]
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/api/:splat"
+  status = 200

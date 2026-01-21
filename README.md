@@ -17,10 +17,10 @@ Frontend (Next.js)
 3) `cp .env.local.example .env.local` and set `NEXT_PUBLIC_API_BASE_URL=http://127.0.0.1:8000`
 4) `npm run dev` and open `http://127.0.0.1:3000`
 
-## Deploying (Netlify frontend)
-- The repo includes `netlify.toml` configured for the `client` app with the Netlify Next.js plugin.
-- Set `NEXT_PUBLIC_API_BASE_URL` in your Netlify site settings to your deployed backend URL.
-- Build command: `npm run build` (base directory `client`, publish `.next`).
+## Deploying (Netlify full stack)
+- `netlify.toml` builds the Next.js app from the `client` folder and bundles the FastAPI backend as a Netlify Function (`/api/*` → `/.netlify/functions/api/:splat`).
+- Set `NEXT_PUBLIC_API_BASE_URL=/api` in Netlify environment variables so the frontend hits the co-located backend.
+- Build command: `npm run build` (base directory `client`, publish `.next`, functions at `../netlify/functions`).
 
 ## Deploying (GitHub Pages frontend)
 - Next.js is configured for static export with GitHub Pages base path/asset prefix.

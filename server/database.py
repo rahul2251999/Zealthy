@@ -1,11 +1,14 @@
 from __future__ import annotations
 
+import os
 from pathlib import Path
 from typing import Iterator
 
 from sqlmodel import Session, SQLModel, create_engine
 
-DB_PATH = Path(__file__).parent / "db.sqlite3"
+# Allow overriding the DB location so serverless environments can write to a writable mount.
+default_db_path = Path(__file__).parent / "db.sqlite3"
+DB_PATH = Path(os.environ.get("DB_PATH", default_db_path))
 DATABASE_URL = f"sqlite:///{DB_PATH}"
 
 engine = create_engine(

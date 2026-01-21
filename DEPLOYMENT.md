@@ -1,6 +1,6 @@
 # Deployment Guide
 
-## Frontend (Netlify)
+## Frontend + Backend (Netlify)
 
 ### Setup Steps:
 
@@ -13,18 +13,20 @@
 2. **Configure Build Settings:**
    - Base directory: `client` (should be auto-detected)
    - Build command: `npm install && npm run build` (should be auto-detected)
-   - Publish directory: `client/.next` (should be auto-detected)
+   - Publish directory: `.next` (resolved inside `client` because of the base path)
+   - Functions directory: `../netlify/functions` (relative to the `client` base)
 
 3. **Set Environment Variables:**
    - Go to Site settings → Environment variables
-   - Add: `NEXT_PUBLIC_API_BASE_URL` = `https://your-backend.onrender.com`
-     (Replace with your actual Render backend URL after deploying)
+   - Add: `NEXT_PUBLIC_API_BASE_URL` = `/api`
+     - A redirect in `netlify.toml` maps `/api/*` → `/.netlify/functions/api/:splat`
+     - The FastAPI app is bundled into the `api` Netlify Function via `Mangum`
 
 4. **Deploy:**
    - Click "Deploy site"
-   - Netlify will build and deploy automatically
+   - Netlify will build the frontend and deploy the backend function automatically
 
-## Backend (Render)
+## Backend (Render) — Optional Alternative
 
 ### Setup Steps:
 

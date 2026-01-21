@@ -1,0 +1,6 @@
+fastapi==0.111.0
+mangum==0.17.0
+passlib[bcrypt]==1.7.4
+python-dotenv==1.0.1
+sqlmodel==0.0.16
+uvicorn==0.29.0
