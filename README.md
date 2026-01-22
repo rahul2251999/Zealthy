@@ -19,7 +19,7 @@ Frontend (Next.js)
 
 ## Deploying (Netlify full stack)
 - `netlify.toml` builds the Next.js app from the `client` folder and bundles the FastAPI backend as a Netlify Function (`/api/*` → `/.netlify/functions/api/:splat`).
-- Set `NEXT_PUBLIC_API_BASE_URL=/api` in Netlify environment variables so the frontend hits the co-located backend.
+- The frontend defaults to `/api` in production, but it's still best to set `NEXT_PUBLIC_API_BASE_URL=/api` in Netlify environment variables so the frontend hits the co-located backend explicitly.
 - Build command: `npm run build` (base directory `client`, publish `.next`, functions at `../netlify/functions`).
 
 ## Deploying (GitHub Pages frontend)
