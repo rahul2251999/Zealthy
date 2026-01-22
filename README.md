@@ -22,6 +22,20 @@ Frontend (Next.js)
 - The frontend defaults to `/api` in production, but it's still best to set `NEXT_PUBLIC_API_BASE_URL=/api` in Netlify environment variables so the frontend hits the co-located backend explicitly.
 - Build command: `npm run build` (base directory `client`, publish `.next`, functions at `../netlify/functions`).
 
+## Deploying backend with Docker (Render or anywhere)
+Backend Dockerfile lives in `server/`.
+Build and run from repo root:
+```bash
+docker build -t zealthy-backend ./server
+docker run -p 8000:8000 -e DB_PATH=/data/db.sqlite3 -v $(pwd)/data:/data zealthy-backend
+# Then hit http://127.0.0.1:8000/health
+```
+Render Web Service settings (Docker):
+- Root directory: `server` (Dockerfile lives there)
+- Build command: leave blank (Render builds the image)
+- Start command: leave blank (CMD in Dockerfile runs uvicorn)
+- Optional persistent disk: mount to `/data`, set env var `DB_PATH=/data/db.sqlite3`
+
 ## Deploying (GitHub Pages frontend)
 - Next.js is configured for static export with GitHub Pages base path/asset prefix.
 - GitHub Action `.github/workflows/gh-pages.yml` builds from `client` and publishes `client/out` to Pages.

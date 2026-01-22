@@ -1,0 +1,31 @@
+# Frontend build artifacts and dependencies
+client/.next
+client/out
+client/node_modules
+
+# Python virtualenvs
+.venv
+venv
+ENV
+env
+
+# Logs and databases
+*.log
+*.db
+*.sqlite
+*.sqlite3
+
+# Git and IDE clutter
+.git
+.gitignore
+.DS_Store
+.idea
+.vscode
+*~
+*.swp
+*.swo
+
+# Environment files
+.env
+.env.local
+.env*.local
