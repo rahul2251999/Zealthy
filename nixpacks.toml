@@ -1,0 +1,11 @@
+providers = ["python"]
+
+[phases.install]
+working_directory = "server"
+cmds = [
+  "python -m pip install --no-cache-dir -r requirements.txt"
+]
+
+[start]
+working_directory = "server"
+cmd = "uvicorn main:app --host 0.0.0.0 --port $PORT"
