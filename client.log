@@ -132,3 +132,8 @@ Error: Route "/admin/[id]" used `params.id`. `params` is a Promise and must be u
 ✓ Ready in 3.3s
  GET / 200 in 653ms (compile: 527ms, render: 126ms)
  GET / 200 in 33ms (compile: 8ms, render: 25ms)
+ GET / 200 in 49ms (compile: 10ms, render: 40ms)
+ GET /admin 200 in 219ms (compile: 195ms, render: 24ms)
+ GET /admin/1 200 in 535ms (compile: 523ms, render: 12ms)
+✓ Compiled in 397ms
+ GET /admin 200 in 284ms (compile: 236ms, render: 49ms)
