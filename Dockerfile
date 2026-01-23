@@ -19,10 +19,11 @@ RUN pip install --no-cache-dir -r /app/requirements.txt
 # Copy backend code from server directory
 COPY server/ /app/
 
-# Writable path for SQLite (mount a volume here in production if you want persistence)
-RUN mkdir -p /data
+# App directory is already writable, database will be created there by default
+# If you need persistent storage, mount a volume and set DB_PATH env var
 
 EXPOSE 8000
 
 # Use shell form to allow environment variable expansion
+# Railway sets PORT automatically, default to 8000 if not set
 CMD uvicorn main:app --host 0.0.0.0 --port ${PORT:-8000}
