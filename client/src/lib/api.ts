@@ -1,8 +1,16 @@
 import { Appointment, Catalog, PatientSummary, PatientWithDetails, PortalSummary, Prescription } from "@/lib/types";
 
+// API base URL configuration:
+// - Set NEXT_PUBLIC_API_BASE_URL environment variable to your Railway backend URL
+// - Example: https://zealthy-backend-production.up.railway.app
+// - For local development, defaults to http://127.0.0.1:8000
 const API_BASE =
   process.env.NEXT_PUBLIC_API_BASE_URL ||
-  (process.env.NODE_ENV === "production" ? "/api" : "http://127.0.0.1:8000");
+  (typeof window !== "undefined" && window.location.hostname === "localhost"
+    ? "http://127.0.0.1:8000"
+    : process.env.NODE_ENV === "production"
+    ? "/api"
+    : "http://127.0.0.1:8000");
 
 type Options = RequestInit & { json?: unknown };
 
