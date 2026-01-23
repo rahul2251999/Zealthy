@@ -137,3 +137,12 @@ Error: Route "/admin/[id]" used `params.id`. `params` is a Promise and must be u
  GET /admin/1 200 in 535ms (compile: 523ms, render: 12ms)
 ✓ Compiled in 397ms
  GET /admin 200 in 284ms (compile: 236ms, render: 49ms)
+⚠ Found a change in next.config.ts. Restarting the server to apply the changes...
+▲ Next.js 16.1.4 (Turbopack)
+- Local:         http://127.0.0.1:3000
+- Network:       http://127.0.0.1:3000
+- Environments: .env.local
+
+✓ Starting...
+✓ Ready in 988ms
+ GET /admin 200 in 1312ms (compile: 1044ms, render: 268ms)
