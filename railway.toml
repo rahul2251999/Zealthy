@@ -1,0 +1,9 @@
+# Railway configuration file
+# This helps Railway detect the correct build method
+
+[build]
+builder = "DOCKERFILE"
+dockerfilePath = "Dockerfile"
+
+[deploy]
+startCommand = "/app/start.sh"
